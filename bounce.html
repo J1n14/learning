@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino Effect OTET</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0b1522;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center; /* Ensures even spacing */
+            align-items: center;
+            width: 400px; /* Width to align OTET properly */
+        }
+
+        .crown {
+            position: absolute;
+            animation: crown-bounce 4s infinite ease-in-out;
+        }
+
+        .crown img {
+            width: 160px;
+            height: auto;
+        }
+
+        .letter {
+            margin-top: 30%;
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+            font-family: Georgia, Serif;
+            text-shadow: 0 0 10px #f21298;
+            cursor: pointer;
+            animation: bounce 4s infinite ease-in-out;
+        }
+
+        /* Individual Letter Animations with Delays */
+        .letter:nth-child(2) { /* O */
+            animation-delay: 0s;
+        }
+
+        .letter:nth-child(3) { /* T */
+            animation-delay: 0.5s;
+        }
+
+        .letter:nth-child(4) { /* E */
+            animation-delay: 1s;
+        }
+
+        .letter:nth-child(5) { /* T */
+            animation-delay: 1.5s;
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0); /* Rest position */
+            }
+            50% {
+                transform: translateY(-40px); /* Bounce up */
+            }
+        }
+
+        /* Crown Animation */
+        @keyframes crown-bounce {
+            0%, 50% {
+                transform: translateY(40px); /* Start and stay lower */
+            }
+            75% {
+                transform: translateY(0); /* Move up to center */
+            }
+            100% {
+                transform: translateY(40px); /* Return lower */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio Element -->
+    <audio id="bg-audio" loop>
+        <source src="C:\Users\acer nitro\Downloads\bounce - Made with Clipchamp.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <div class="crown">
+            <img src="C:\Users\acer nitro\Downloads\crown-removebg-preview.png" alt="Crown">
+        </div>
+        <!-- Each OTET Letter -->
+        <div class="letter" id="play-audio">O</div>
+        <div class="letter" id="play-audio">T</div>
+        <div class="letter" id="play-audio">E</div>
+        <div class="letter" id="play-audio">T</div>
+    </div>
+
+    <script>
+        // Play audio when any OTET letter is clicked
+        document.querySelectorAll("#play-audio").forEach(element => {
+            element.addEventListener("click", function() {
+                const audio = document.getElementById("bg-audio");
+                audio.play();
+            });
+        });
+    </script>
+
+</body>
+</html>
