@@ -30,8 +30,9 @@
         }
 
         .crown img {
-            width: 160px;
+            width: 140px;
             height: auto;
+            filter: drop-shadow(10px 10px 10px #ef04a4);
         }
 
         .letter {
@@ -40,7 +41,7 @@
             font-weight: bold;
             color: #008080;
             font-family: Georgia, Serif;
-            text-shadow: 0 0 10px #f21298;
+            text-shadow: 0 0 10px hsl(291, 97%, 49%);
             cursor: pointer;
             animation: bounce 4s infinite ease-in-out;
         }
@@ -96,7 +97,7 @@
 
     <div class="container">
         <div class="crown">
-            <img src="crown-removebg-preview.png" alt="Crown">
+            <img src="crown.png" alt="Crown">
         </div>
         <!-- Each OTET Letter -->
         <div class="letter" id="play-audio">O</div>
